@@ -2,4 +2,3 @@
 
 https://github.com/filippahognasbacka/ohtuvarasto1.git 
 
-#moi!
