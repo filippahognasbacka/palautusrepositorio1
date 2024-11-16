@@ -1,9 +1,0 @@
-[submodule "viikko3/hello-robot"]
-	path = viikko3/hello-robot
-	url = https://github.com/ohjelmistotuotanto-hy/tehtavat.git/hello-robot
-[submodule "viikko3/web-login"]
-	path = viikko3/web-login
-	url = https://github.com/ohjelmistotuotanto-hy/tehtavat.git/web-login
-[submodule "viikko3/webcounter"]
-	path = viikko3/webcounter
-	url = https://github.com/ohjelmistotuotanto-hy/tehtavat.git/webcounter
