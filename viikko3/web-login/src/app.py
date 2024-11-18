@@ -55,6 +55,11 @@ def handle_login():
     username = request.form.get("username")
     password = request.form.get("password")
 
+    user = user_repository.find_by_username(username)
+    if user is None:
+        flash("Username doesn't exist")
+        return redirect_to_login()
+
     try:
         user_service.check_credentials(username, password)
         return redirect_to_ohtu()

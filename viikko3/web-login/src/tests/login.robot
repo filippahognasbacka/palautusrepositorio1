@@ -17,6 +17,12 @@ Login With Incorrect Password
     Submit Credentials
     Login Should Fail With Message  Invalid username or password
 
+Login With Nonexistent Username
+    Set Username  random
+    Set Password  passwor
+    Submit Credentials
+    Login Should Fail With Message  Username doesn't exist
+
 *** Keywords ***
 Login Should Succeed
     Main Page Should Be Open
@@ -42,3 +48,4 @@ Reset Application Create User And Go To Login Page
     Reset Application
     Create User  kalle  kalle123
     Go To Login Page
+
