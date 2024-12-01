@@ -1,6 +1,6 @@
 from statistics import Statistics
 from player_reader import PlayerReader
-from matchers import And, HasAtLeast, PlaysIn, All, Not, HasFewerThan, Or
+from matchers import And, HasAtLeast, PlaysIn, All, Not, HasFewerThan, Or, Pinorakentaja
 
 def main():
     url = "https://studies.cs.helsinki.fi/nhlstats/2023-24/players.txt"
@@ -32,12 +32,22 @@ def main():
     )
 )
 
+    rakenna = Pinorakentaja()
+
+    matcher = rakenna.plays_in("NYR").pino()
+
+
+
+    matcher = (
+      rakenna
+      .plays_in("NYR")
+      .has_at_least(10, "goals")
+      .has_fewer_than(20, "goals")
+      .pino()
+    )
 
     for player in stats.matches(matcher):
         print(player)
-
-
-
 
 if __name__ == "__main__":
     main()

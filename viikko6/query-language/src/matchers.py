@@ -62,3 +62,19 @@ class Or:
             if matcher.test(player):
                 return True
         return False
+
+class Pinorakentaja:
+    def __init__(self, matcher=All()):
+        self._matcher = matcher
+
+    def plays_in(self, team):
+        return Pinorakentaja(And(self._matcher, PlaysIn(team)))
+
+    def has_at_least(self, value, attr):
+        return Pinorakentaja(And(self._matcher, HasAtLeast(value, attr)))
+
+    def has_fewer_than(self, value, attr):
+        return Pinorakentaja(And(self._matcher, HasFewerThan(value, attr)))
+
+    def pino(self):
+        return self._matcher
