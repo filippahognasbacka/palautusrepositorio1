@@ -49,5 +49,39 @@ def main():
     for player in stats.matches(matcher):
         print(player)
 
+    rakenna = Pinorakentaja()
+    m1 = (
+        rakenna
+        .plays_in("PHI")
+        .has_at_least(10, "assists")
+        .has_fewer_than(10, "goals")
+        .pino()
+)
+
+    m2 = (
+        rakenna
+        .plays_in("EDM")
+        .has_at_least(50, "points")
+        .pino()
+)
+    matcher = (
+        rakenna
+            .one_of(
+                rakenna.plays_in("PHI")
+                    .has_at_least(10, "assists")
+                    .has_fewer_than(10, "goals")
+                    .pino(),
+                rakenna.plays_in("EDM")
+                    .has_at_least(50, "points")
+                    .pino()
+        )
+        .pino()
+)
+
+    matcher = rakenna.one_of(m1, m2).pino()
+
+    for player in stats.matches(matcher):
+        print(player)
+
 if __name__ == "__main__":
     main()
